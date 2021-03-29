@@ -16,16 +16,16 @@ export class WebsiteService {
     return this.httpClient.get<Website[]>(`${this.baseURL}`);
   }
 
-  create(employee: Website): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL}`, employee);
+  create(website: Website): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL}`, website);
   }
 
   getById(id: number): Observable<Website> {
     return this.httpClient.get<Website>(`${this.baseURL}/${id}`);
   }
 
-  update(id: number, employee: Website): Observable<Object> {
-    return this.httpClient.put(`${this.baseURL}/${id}`, employee);
+  update(id: number, website: Website): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}/${id}`, website);
   }
 
   delete(id: number): Observable<Object>{

@@ -1,0 +1,20 @@
+<nav class = "navbar navbar navbar-expand-sm bg-warning">
+  <ul class = "navbar-nav">
+    <li class="nav-item">
+      <mat-icon routerLink = "/websites" routerLinkActive="active" aria-hidden="false" class = "materials-icons" style="cursor: pointer"> home </mat-icon>
+    </li>
+  </ul>
+</nav>
+
+<h3> View Website Details </h3>
+<div>
+  <div>
+    <label> <b> Name: </b> </label> {{website.name}}
+  </div>
+  <div>
+    <label> <b> URL: </b> </label> {{website.url}}
+  </div>
+  <div>
+    <label> <b> Active: </b> </label> {{website.active}}
+  </div>
+</div>
