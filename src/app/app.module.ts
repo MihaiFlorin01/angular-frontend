@@ -29,18 +29,20 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatOptionModule} from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {CommonModule} from '@angular/common';
 import { LoginComponent } from './components/websites/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     DialogCreateWebsite,
     DialogDeleteWebsite,
     CreateWebsiteComponent,
     UpdateWebsiteComponent,
     WebsiteDetailsComponent,
-    WebsiteListComponent
+    WebsiteListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import { LoginComponent } from './components/websites/login/login.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSlideToggleModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
     LayoutModule,
@@ -63,9 +66,10 @@ import { LoginComponent } from './components/websites/login/login.component';
     MatDialogModule,
     MatTableModule,
     MatRadioModule,
-    MatOptionModule
+    MatOptionModule,
+    CommonModule
   ],
-  entryComponents: [LoginComponent, CreateWebsiteComponent, DialogCreateWebsite, DialogUpdateWebsite, DialogDeleteWebsite],
+  entryComponents: [CreateWebsiteComponent, DialogCreateWebsite, DialogUpdateWebsite, DialogDeleteWebsite],
   providers: [{
     provide: MatDialogRef,
     useValue: DialogDeleteWebsite
@@ -75,5 +79,3 @@ import { LoginComponent } from './components/websites/login/login.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

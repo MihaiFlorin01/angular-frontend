@@ -33,8 +33,7 @@ export class CreateWebsiteComponent implements OnInit {
   onSubmit(): void {
     console.log(this.website);
     this.save();
-}
-
+  }
 }
 
 @Component({

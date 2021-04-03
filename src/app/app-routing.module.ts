@@ -8,8 +8,9 @@ import {LoginComponent} from './components/websites/login/login.component';
 
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
   {path: 'websites', component: WebsiteListComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'create-website', component: CreateWebsiteComponent},
   {path: '', redirectTo: 'websites', pathMatch: 'full' },
   {path: 'update/:id', component: UpdateWebsiteComponent},

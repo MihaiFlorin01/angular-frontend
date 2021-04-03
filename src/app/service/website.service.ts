@@ -16,7 +16,7 @@ export class WebsiteService {
     return this.httpClient.get<Website[]>(`${this.baseURL}`);
   }
 
-  create(website: Website): Observable<Object> {
+  create(website: Website): Observable<object> {
     return this.httpClient.post(`${this.baseURL}`, website);
   }
 
@@ -24,11 +24,11 @@ export class WebsiteService {
     return this.httpClient.get<Website>(`${this.baseURL}/${id}`);
   }
 
-  update(id: number, website: Website): Observable<Object> {
+  update(id: number, website: Website): Observable<object> {
     return this.httpClient.put(`${this.baseURL}/${id}`, website);
   }
 
-  delete(id: number): Observable<Object>{
+  delete(id: number): Observable<object>{
     const url = this.baseURL + '/delete/' + id ;
     console.log( url );
     return this.httpClient.delete(url);

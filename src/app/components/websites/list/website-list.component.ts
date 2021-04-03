@@ -1,14 +1,14 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Website} from '../../../model/website';
 import {WebsiteService} from '../../../service/website.service';
 import {Router} from '@angular/router';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {DialogDeleteWebsite} from '../delete/DialogDeleteWebsite';
 
 @Component({
   selector: 'app-website-list',
   templateUrl: './website-list.component.html',
-  styleUrls: ['./website-list.component.css']
+  styleUrls: ['./website-list.component.css'],
 })
 
 export class WebsiteListComponent implements OnInit {
