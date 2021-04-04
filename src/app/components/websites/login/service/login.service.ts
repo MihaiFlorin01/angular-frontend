@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../model/user';
-import {Observable} from 'rxjs/index';
+import {BehaviorSubject, Observable} from 'rxjs/index';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,16 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getList(): Observable<User[]> {
-    return this.httpClient.get<User[]>(`${this.baseURL}`);
+  getList(): Observable<User> {
+    return this.httpClient.get<User>(`${this.baseURL}/users`);
   }
 
   loginUser(user: User): Observable<object> {
-    return this.httpClient.get<User>(`${this.baseURL}`);
+    return this.httpClient.post(`${this.baseURL}`, user);
   }
+
+
+  // currentMessage = this.messageSource.asObservable();
 
   // getById(id: number): Observable<User> {
   //   return this.httpClient.get<User>(`${this.baseURL}/${id}`);

@@ -1,24 +1,33 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Website} from '../../../model/website';
 import {WebsiteService} from '../../../service/website.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogDeleteWebsite} from '../delete/DialogDeleteWebsite';
+import {LoginComponent} from '../login/login.component';
+import {User} from '../login/model/user';
+import {LoginService} from "../login/service/login.service";
+import {Observable} from "rxjs/index";
 
 @Component({
+  providers: [LoginComponent],
   selector: 'app-website-list',
   templateUrl: './website-list.component.html',
   styleUrls: ['./website-list.component.css'],
 })
 
 export class WebsiteListComponent implements OnInit {
+
+  user = localStorage.getItem('user');
   website: Website;
   websites: Website[];
   columnsToDisplay = ['name', 'url', 'status', 'actions', 'create_website'];
 
   constructor(private websiteService: WebsiteService,
               private router: Router,
-              private dialog: MatDialog)
+              private dialog: MatDialog,
+              private loginService: LoginService
+  )
   {}
 
   ngOnInit(): void {
