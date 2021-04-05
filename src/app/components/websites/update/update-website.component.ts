@@ -13,6 +13,7 @@ export class UpdateWebsiteComponent implements OnInit {
 
   id: number;
   websiteModel: Website = new Website();
+  user = localStorage.getItem('user');
 
   constructor(private websiteService: WebsiteService, private route: ActivatedRoute,
               private router: Router, private dialog: MatDialog) {

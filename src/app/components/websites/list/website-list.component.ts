@@ -5,9 +5,8 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogDeleteWebsite} from '../delete/DialogDeleteWebsite';
 import {LoginComponent} from '../login/login.component';
-import {User} from '../login/model/user';
-import {LoginService} from "../login/service/login.service";
-import {Observable} from "rxjs/index";
+import {LoginService} from '../login/service/login.service';
+
 
 @Component({
   providers: [LoginComponent],

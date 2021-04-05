@@ -3,7 +3,6 @@ import {User} from './model/user';
 import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {LoginService} from './service/login.service';
-import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-login',
@@ -22,9 +21,14 @@ export class LoginComponent implements OnInit {
   }
 
   enterUser(): void {
-    this.gotToList();
+
     localStorage.setItem('user', this.user.username);
-    console.log(this.user.username + ' ' + this.user.password);
+    this.loginService.loginUser(this.user).subscribe((data) => {
+        if (data.toString() === 'true') {
+          console.log(this.user.username + ' ' + this.user.password);
+          this.gotToList();
+        }
+    });
   }
 
 

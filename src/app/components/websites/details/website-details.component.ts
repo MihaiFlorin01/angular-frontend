@@ -10,6 +10,7 @@ import {WebsiteService} from '../../../service/website.service';
 })
 export class WebsiteDetailsComponent implements OnInit {
 
+  user = localStorage.getItem('user');
   id: number;
   website: Website;
   constructor(private route: ActivatedRoute, private websiteService: WebsiteService) { }
