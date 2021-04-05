@@ -11,7 +11,15 @@ button {
 
 }
 
-
 span {
   vertical-align: 30px;
+}
+
+.user {
+  width:2000px;
+  height: 10px;
+  display:flex;
+  justify-content: center;
+  align-items:right;
+  transform: translate(0px, -20px);
 }
