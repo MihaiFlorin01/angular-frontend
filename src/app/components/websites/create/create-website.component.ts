@@ -22,12 +22,12 @@ export class CreateWebsiteComponent implements OnInit {
     this.websiteService.create(this.website).subscribe(data => {
       console.log(data);
       this.dialog.open(DialogCreateWebsite);
-      this.gotToList();
+      this.goToList();
     },
     error => console.log(error));
   }
 
-  gotToList(): void{
+  goToList(): void{
     this.router.navigate(['/websites']);
   }
 

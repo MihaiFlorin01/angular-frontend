@@ -1,14 +1,13 @@
-td.mat-cell{
+td.mat-cell {
   border-bottom-style: none;
 }
 
-th.mat-header-cell{
+th.mat-header-cell {
   border-bottom-style: none;
 }
 
 button {
   right: 70px;
-
 }
 
 span {
@@ -16,10 +15,10 @@ span {
 }
 
 .user {
-  width:2000px;
+  width: 2000px;
   height: 10px;
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items:right;
+  align-items: right;
   transform: translate(0px, -20px);
 }

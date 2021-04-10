@@ -1,6 +1,6 @@
 import {EventEmitter, Injectable, Output, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {User} from '../model/user';
+import {User} from '../../register/model/user';
 import {BehaviorSubject, Observable} from 'rxjs/index';
 
 
@@ -17,7 +17,7 @@ export class LoginService {
     return this.httpClient.get<User>(`${this.baseURL}/users`);
   }
 
-  loginUser(user: User): Observable<object> {
+  userRegistration(user: User): Observable<object> {
     return this.httpClient.post(`${this.baseURL}`, user);
   }
 

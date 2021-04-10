@@ -1,0 +1,26 @@
+<h2 style="text-align: center"> Register </h2>
+<div class="mat-elevation-z8" style="text-align: center" >
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>First Name</mat-label>
+      <input  matInput [(ngModel)]="user.firstName" name="firstName" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+      <mat-label>Last Name</mat-label>
+      <input  matInput [(ngModel)]="user.lastName" name="lastName" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input  matInput [(ngModel)]="user.email" name="email">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input  matInput [(ngModel)]="user.password" name="password">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button class="btn btn-dark" type="submit">Submit</button>
+  </form>
+</div>>

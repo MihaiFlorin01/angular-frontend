@@ -3,10 +3,10 @@ mat-radio-button {
 }
 
 .user {
-  width:2000px;
+  width: 2000px;
   height: 10px;
-  display:flex;
+  display: flex;
   justify-content: center;
-  align-items:right;
+  align-items: right;
   transform: translate(0px, -20px);
 }

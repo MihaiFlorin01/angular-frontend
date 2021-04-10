@@ -31,7 +31,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatOptionModule} from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {CommonModule} from '@angular/common';
-import { LoginComponent } from './components/websites/login/login.component';
+import { LoginComponent } from './components/websites/login/components/login.component';
+import { RegisterComponent } from './components/websites/register/components/register.component';
+import { ActionComponent } from './components/websites/action/components/action.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { LoginComponent } from './components/websites/login/login.component';
     UpdateWebsiteComponent,
     WebsiteDetailsComponent,
     WebsiteListComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ActionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {User} from './model/user';
+import {User} from '../../register/model/user';
 import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
-import {LoginService} from './service/login.service';
+import {LoginService} from '../service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
 
   enterUser(): void {
 
-    localStorage.setItem('user', this.user.username);
-    this.loginService.loginUser(this.user).subscribe((data) => {
+    localStorage.setItem('user', this.user.firstName + this.user.lastName);
+    this.loginService.userRegistration(this.user).subscribe((data) => {
         if (data.toString() === 'true') {
-          console.log(this.user.username + ' ' + this.user.password);
+          console.log(this.user.email+ this.user.password);
           this.gotToList();
         }
     });

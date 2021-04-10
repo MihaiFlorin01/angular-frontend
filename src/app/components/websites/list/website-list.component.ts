@@ -4,9 +4,7 @@ import {WebsiteService} from '../../../service/website.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogDeleteWebsite} from '../delete/DialogDeleteWebsite';
-import {LoginComponent} from '../login/login.component';
-import {LoginService} from '../login/service/login.service';
-
+import {LoginComponent} from '../login/components/login.component';
 
 @Component({
   providers: [LoginComponent],
@@ -24,8 +22,7 @@ export class WebsiteListComponent implements OnInit {
 
   constructor(private websiteService: WebsiteService,
               private router: Router,
-              private dialog: MatDialog,
-              private loginService: LoginService
+              private dialog: MatDialog
   )
   {}
 
