@@ -34,6 +34,7 @@ import {CommonModule} from '@angular/common';
 import { LoginComponent } from './components/websites/login/components/login.component';
 import { RegisterComponent } from './components/websites/register/components/register.component';
 import { ActionComponent } from './components/websites/action/components/action.component';
+import {AuthGuard} from "./components/websites/guard/auth-guard/auth.guard";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import { ActionComponent } from './components/websites/action/components/action.
     CommonModule
   ],
   entryComponents: [CreateWebsiteComponent, DialogCreateWebsite, DialogUpdateWebsite, DialogDeleteWebsite],
-  providers: [{
+  providers: [AuthGuard, {
     provide: MatDialogRef,
     useValue: DialogDeleteWebsite
   },

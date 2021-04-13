@@ -5,14 +5,12 @@ import {CreateWebsiteComponent} from './components/websites/create/create-websit
 import {UpdateWebsiteComponent} from './components/websites/update/update-website.component';
 import {WebsiteDetailsComponent} from './components/websites/details/website-details.component';
 import {LoginComponent} from './components/websites/login/components/login.component';
-import {AuthService} from './components/websites/login/auth-service/auth.service';
-import {AuthGuard} from './components/websites/login/auth-guard/auth.guard';
+import {AuthGuard} from './components/websites/guard/auth-guard/auth.guard';
 import {RegisterComponent} from "./components/websites/register/components/register.component";
 import {ActionComponent} from "./components/websites/action/components/action.component";
 
 const routes: Routes = [
-  {path: 'websites', component: WebsiteListComponent},
-  // canActivate: [AuthGuard]
+  {path: 'websites', component: WebsiteListComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'action', component: ActionComponent},
@@ -25,6 +23,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthService]
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

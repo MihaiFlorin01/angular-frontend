@@ -1,8 +1,9 @@
 <nav class = "navbar navbar navbar-expand-sm bg-warning darkMode">
   <ul class = "navbar-nav">
     <li class="nav-item">
-      <mat-icon routerLink = "/websites" routerLinkActive="active" aria-hidden="false" class = "materials-icons" style="cursor: pointer"> home </mat-icon>
+      <mat-icon routerLink = "/websites" routerLinkActive="active" aria-hidden="true" class = "materials-icons" style="cursor: pointer"> home </mat-icon>
       <div class="user"> {{user}}</div>
+      <mat-icon class="materials-icons logout" (click)="logout()" aria-hidden="true" style="cursor: pointer"> logout </mat-icon>
     </li>
   </ul>
 </nav>
@@ -35,7 +36,7 @@
 
   <ng-container matColumnDef="create_website">
     <mat-header-cell *matHeaderCellDef>
-      <mat-icon routerLink = "/create-website" routerLinkActive="active" class ="materials-icons" aria-hidden="false" style="padding-left: 20px; cursor: pointer"> add_circle_outline </mat-icon>
+      <mat-icon routerLink = "/create-website" routerLinkActive="active" class ="materials-icons" aria-hidden="false" style="padding-left: 20px; height: 0; transform: translate(0, -10px); cursor: pointer"> add_circle_outline </mat-icon>
     </mat-header-cell>
     <mat-cell *matCellDef="let website">
     </mat-cell>

@@ -30,6 +30,12 @@ export class WebsiteListComponent implements OnInit {
     this.getWebsite();
   }
 
+  logout(): void {
+    localStorage.setItem('auth', 'false');
+    this.router.navigate(['/action']);
+    console.log('User was logout');
+  }
+
   private getWebsite(): void {
     this.websiteService.getList().subscribe(data => {
       this.websites = data;

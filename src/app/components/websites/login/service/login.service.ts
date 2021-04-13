@@ -1,7 +1,7 @@
-import {EventEmitter, Injectable, Output, ViewChild} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../../register/model/user';
-import {BehaviorSubject, Observable} from 'rxjs/index';
+import {Observable} from 'rxjs/index';
 
 
 @Injectable({

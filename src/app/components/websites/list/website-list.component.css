@@ -15,10 +15,41 @@ span {
 }
 
 .user {
-  width: 2000px;
+  width: 1930px;
   height: 10px;
   display: flex;
   justify-content: center;
   align-items: right;
-  transform: translate(0px, -20px);
+  transform: translate(0px, -24px);
 }
+
+.logout {
+  width: 2130px;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: right;
+  transform: translate(0px, -35px);
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 600px) {
+.mobile-label {
+  width: 80px;
+  display: inline-block;
+  font-weight: bold;
+}
+  .mat-header-row {
+     display: none;
+  }
+
+  .mat-row {
+     flex-direction: column;
+     align-items: start;
+     padding: 8px 24px;
+  }
+}
+

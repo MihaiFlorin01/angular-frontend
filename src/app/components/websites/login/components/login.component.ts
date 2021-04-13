@@ -20,12 +20,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enterUser(): void {
+  loginUser(): void {
 
-    localStorage.setItem('user', this.user.firstName + this.user.lastName);
+    localStorage.setItem('user', this.user.username);
     this.loginService.userRegistration(this.user).subscribe((data) => {
         if (data.toString() === 'true') {
-          console.log(this.user.email+ this.user.password);
+          localStorage.setItem('auth', 'true');
+          console.log(this.user.username + ' ' + this.user.password);
           this.gotToList();
         }
     });
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.enterUser();
+    this.loginUser();
   }
 
 }
