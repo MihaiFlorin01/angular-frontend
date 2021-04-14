@@ -29,12 +29,12 @@ export class UpdateWebsiteComponent implements OnInit {
   onSubmit(): any {
     this.websiteService.update(this.id, this.websiteModel).subscribe(data => {
         this.dialog.open(DialogUpdateWebsite);
-        this.goToEmployeeList();
+        this.goToWebsitesList();
       },
       error => console.log(error));
   }
 
-  goToEmployeeList(): void {
+  goToWebsitesList(): void {
     this.router.navigate(['/websites']);
   }
 }

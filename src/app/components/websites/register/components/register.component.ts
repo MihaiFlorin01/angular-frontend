@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RegisterService} from '../service/register.service';
 import {User} from '../model/user';
 import {Router} from '@angular/router';
@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
   registerUser(): void {
     this.registerService.userRegistration(this.user).subscribe(data => {
       console.log(data);
-      this.gotToList();
+      this.goToList();
     });
   }
 
-  gotToList(): void{
+  goToList(): void{
     this.router.navigate(['/login']);
   }
 

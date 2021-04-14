@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {WebsiteListComponent} from './components/websites/list/website-list.component';
 import {CreateWebsiteComponent} from './components/websites/create/create-website.component';
 import {UpdateWebsiteComponent} from './components/websites/update/update-website.component';
 import {WebsiteDetailsComponent} from './components/websites/details/website-details.component';
 import {LoginComponent} from './components/websites/login/components/login.component';
-import {AuthGuard} from './components/websites/guard/auth-guard/auth.guard';
-import {RegisterComponent} from "./components/websites/register/components/register.component";
-import {ActionComponent} from "./components/websites/action/components/action.component";
+import {AuthGuard} from './components/websites/guard/auth.guard';
+import {RegisterComponent} from './components/websites/register/components/register.component';
+import {ActionComponent} from './components/websites/action/components/action.component';
 
 const routes: Routes = [
   {path: 'websites', component: WebsiteListComponent, canActivate: [AuthGuard]},

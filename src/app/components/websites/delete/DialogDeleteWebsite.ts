@@ -22,7 +22,7 @@ export class DialogDeleteWebsite {
 
   yes(): void {
     const idR: number = +this.data.dataKey;
-    this.websiteService.delete(idR).subscribe(data => {
+    this.websiteService.delete(idR).subscribe(() => {
       this.dialogRef.close('SUCCESS_DELETE');
   });
   }

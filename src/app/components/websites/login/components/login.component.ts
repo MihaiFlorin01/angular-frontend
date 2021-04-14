@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../register/model/user';
-import {MatDialog} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
 
@@ -13,7 +12,7 @@ import {LoginService} from '../service/login.service';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router, private dialog: MatDialog) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   user: User = new User();
 
@@ -21,7 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(): void {
-
     localStorage.setItem('user', this.user.username);
     this.loginService.userRegistration(this.user).subscribe((data) => {
         if (data.toString() === 'true') {
@@ -31,16 +29,6 @@ export class LoginComponent implements OnInit {
         }
     });
   }
-
-
-
-  // accessUser(): string {
-  //   this.loginService.loginUser(this.user2).subscribe(() => {
-  //     console.log(this.user2.username);
-  //     this.username = this.user2.username;
-  //   });
-  //   return this.username;
-  // }
 
   gotToList(): void{
     this.router.navigate(['/websites']);

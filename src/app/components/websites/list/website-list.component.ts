@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Website} from '../../../model/website';
 import {WebsiteService} from '../../../service/website.service';
 import {Router} from '@angular/router';
@@ -55,7 +55,7 @@ export class WebsiteListComponent implements OnInit {
       data: {
         dataKey: id
       }
-    }).afterClosed().subscribe(r => {
+    }).afterClosed().subscribe(() => {
       this.getWebsite();
     });
   }

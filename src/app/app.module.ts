@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,7 +34,7 @@ import {CommonModule} from '@angular/common';
 import { LoginComponent } from './components/websites/login/components/login.component';
 import { RegisterComponent } from './components/websites/register/components/register.component';
 import { ActionComponent } from './components/websites/action/components/action.component';
-import {AuthGuard} from "./components/websites/guard/auth-guard/auth.guard";
+import {AuthGuard} from './components/websites/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -80,7 +80,7 @@ import {AuthGuard} from "./components/websites/guard/auth-guard/auth.guard";
     useValue: DialogDeleteWebsite
   },
     DialogDeleteWebsite],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
