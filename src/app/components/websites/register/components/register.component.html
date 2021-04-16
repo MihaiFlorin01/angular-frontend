@@ -1,21 +1,43 @@
 <h2 style="text-align: center"> Register </h2>
 <div class="mat-elevation-z8" style="text-align: center" >
-  <form (ngSubmit)="onSubmit()">
-    <mat-form-field class="full-width">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" hideRequiredMarker>
       <mat-label>Username</mat-label>
-      <input  matInput [(ngModel)]="user.username" name="username" required type="text">
+      <input matInput formControlName="username" [(ngModel)]="user.username" required>
+      <mat-error *ngIf="registerForm.get('username').hasError('username') && !registerForm.get('username').hasError('required')">
+        Please enter a valid username
+      </mat-error>
+      <mat-error
+        *ngIf="registerForm.get('username').hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field class="full-width">
+    <mat-form-field class="full-width" hideRequiredMarker>
       <mat-label>Email</mat-label>
-      <input  matInput [(ngModel)]="user.email" name="email" required type="email">
+      <input matInput formControlName="email" [(ngModel)]="user.email" required>
+      <mat-error *ngIf="registerForm.get('email').hasError('email') && !registerForm.get('email').hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error
+        *ngIf="registerForm.get('email').hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field class="full-width">
+    <mat-form-field class="full-width" hideRequiredMarker>
       <mat-label>Password</mat-label>
-      <input  matInput [(ngModel)]="user.password" name="password" required type="password">
+      <input matInput formControlName="password" [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error *ngIf="registerForm.get('password').hasError('password') && !registerForm.get('password').hasError('required')">
+        Please enter a valid password
+      </mat-error>
+      <mat-error
+        *ngIf="registerForm.get('password').hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <br>
-    <button mat-raised-button class="btn btn-dark" type="submit">Submit</button>
+    <button mat-raised-button class="btn btn-dark" [disabled]="!registerForm.valid" type="submit">Register</button>
   </form>
 </div>

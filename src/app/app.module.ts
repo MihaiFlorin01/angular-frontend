@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {CreateWebsiteComponent, DialogCreateWebsite} from './components/websites/create/create-website.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { WebsiteDetailsComponent } from './components/websites/details/website-details.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatInputModule} from '@angular/material/input';
@@ -30,11 +30,11 @@ import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatOptionModule} from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {CommonModule} from '@angular/common';
 import { LoginComponent } from './components/websites/login/components/login.component';
 import { RegisterComponent } from './components/websites/register/components/register.component';
 import { ActionComponent } from './components/websites/action/components/action.component';
 import {AuthGuard} from './components/websites/guard/auth.guard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -55,6 +55,7 @@ import {AuthGuard} from './components/websites/guard/auth.guard';
     HttpClientModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -72,7 +73,7 @@ import {AuthGuard} from './components/websites/guard/auth.guard';
     MatTableModule,
     MatRadioModule,
     MatOptionModule,
-    CommonModule
+    MatSnackBarModule,
   ],
   entryComponents: [CreateWebsiteComponent, DialogCreateWebsite, DialogUpdateWebsite, DialogDeleteWebsite],
   providers: [AuthGuard, {

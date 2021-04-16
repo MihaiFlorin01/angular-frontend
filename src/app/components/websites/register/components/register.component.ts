@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {RegisterService} from '../service/register.service';
 import {User} from '../model/user';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +12,17 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private registerService: RegisterService, private router: Router) { }
+  constructor(private registerService: RegisterService, private router: Router, private snackBar: MatSnackBar, private formBuilder: FormBuilder) {}
+
+  hide = true;
 
   user: User = new User();
+
+  registerForm: FormGroup = this.formBuilder.group({
+    username: [, { validators: [Validators.required, Validators.minLength(5), Validators.maxLength(30)], updateOn: 'change' }],
+    email: [, {validators: [Validators.required, Validators.email], updateOn: 'change', }],
+    password: [, { validators: [Validators.required, Validators.minLength(5), Validators.maxLength(30)], updateOn: 'change' }],
+  });
 
   ngOnInit(): void {
   }
@@ -25,10 +35,13 @@ export class RegisterComponent implements OnInit {
   }
 
   goToList(): void{
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
   }
 
   onSubmit(): void {
+    this.snackBar.open('Successful registration!', 'Close', {
+      duration: 3000,
+    });
     this.registerUser();
   }
 

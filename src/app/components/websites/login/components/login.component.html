@@ -2,18 +2,33 @@
 
   <h3> Login </h3>
 
-  <form (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label style="color: black;">Username</mat-label>
-      <input matInput name="username" [(ngModel)]="user.username" required="">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" hideRequiredMarker>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" [(ngModel)]="user.username" required>
+      <mat-error *ngIf="loginForm.get('username').hasError('username') && !loginForm.get('username').hasError('required')">
+        Please enter a valid username
+      </mat-error>
+      <mat-error
+        *ngIf="loginForm.get('username').hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field class="example-form-field" appearance="fill">
-      <mat-label style="color: black;">Password</mat-label>
-      <input matInput name="password" type="password" [(ngModel)]="user.password" required="">
+    <mat-form-field class="full-width" hideRequiredMarker>
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-error *ngIf="loginForm.get('password').hasError('password') && !loginForm.get('password').hasError('required')">
+        Please enter a valid password
+      </mat-error>
+      <mat-error
+        *ngIf="loginForm.get('password').hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
     <br>
-    <button mat-raised-button class="btn btn-dark" type="submit">Submit</button>
+    <button mat-raised-button class="btn btn-dark" [disabled]="!loginForm.valid" type="submit">Login</button>
   </form>
 
 </div>
