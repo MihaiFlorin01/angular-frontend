@@ -34,7 +34,15 @@ export class LoginComponent implements OnInit {
     this.loginService.userRegistration(this.user).subscribe((data) => {
         if (data.toString() === 'true') {
           localStorage.setItem('auth', 'true');
+          this.snackBar.open('Successful login!', 'Close', {
+            duration: 3000,
+          });
           this.goToList();
+        }
+        else {
+          this.snackBar.open('Username or password is wrong!', 'Close', {
+            duration: 3000,
+          });
         }
     });
   }
@@ -45,9 +53,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     this.loginUser();
-    this.snackBar.open('Successful login!', 'Close', {
-      duration: 3000,
-    });
   }
 
 }

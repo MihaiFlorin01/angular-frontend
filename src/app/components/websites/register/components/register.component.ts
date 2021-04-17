@@ -28,8 +28,10 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(): void {
-    this.registerService.userRegistration(this.user).subscribe(data => {
-      console.log(data);
+    this.registerService.userRegistration(this.user).subscribe((data) => {
+      this.snackBar.open('Successful registration!', 'Close', {
+        duration: 3000,
+      });
       this.goToList();
     });
   }
@@ -39,9 +41,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.snackBar.open('Successful registration!', 'Close', {
-      duration: 3000,
-    });
     this.registerUser();
   }
 
