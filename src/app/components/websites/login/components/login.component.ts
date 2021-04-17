@@ -33,29 +33,21 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('user', this.user.username);
     this.loginService.userRegistration(this.user).subscribe((data) => {
         if (data.toString() === 'true') {
-          localStorage.setItem('value', 'true');
-          console.log(this.user.username + ' ' + this.user.password);
+          localStorage.setItem('auth', 'true');
           this.goToList();
         }
     });
   }
 
   goToList(): void{
-    this.router.navigate(['websites']);
+    this.router.navigate(['/websites']);
   }
 
   onSubmit(): void {
     this.loginUser();
-    if (localStorage.getItem('value') === 'true') {
-      this.snackBar.open('Successful login!', 'Close', {
-        duration: 3000,
-      });
-    }
-    else {
-      this.snackBar.open('Username or password is wrong!', 'Close', {
-        duration: 3000,
-      });
-    }
+    this.snackBar.open('Successful login!', 'Close', {
+      duration: 3000,
+    });
   }
 
 }
