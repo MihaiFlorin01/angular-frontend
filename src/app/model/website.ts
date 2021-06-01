@@ -3,4 +3,5 @@ export class Website {
   name: string;
   url: string;
   active: boolean;
+  period: string;
 }

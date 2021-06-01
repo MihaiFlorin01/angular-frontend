@@ -19,7 +19,6 @@ export class WebsiteListComponent implements OnInit {
   website: Website;
   websites: Website[];
   columnsToDisplay = ['name', 'url', 'status', 'actions', 'create_website'];
-
   constructor(private websiteService: WebsiteService,
               private router: Router,
               private dialog: MatDialog
@@ -36,7 +35,7 @@ export class WebsiteListComponent implements OnInit {
     console.log('User was logout');
   }
 
-  private getWebsite(): void {
+  getWebsite(): void {
     this.websiteService.getList().subscribe(data => {
       this.websites = data;
     });

@@ -32,8 +32,42 @@ span {
   transform: translate(0px, -35px);
 }
 
-.mobile-label {
-  display: none;
+* {
+  box-sizing: border-box;
 }
 
+.name {
+  background-color: red;
+  width: 20%;
+}
 
+.url {
+  background-color: blue;
+}
+
+.status {
+  background-color: green;
+}
+
+.actions {
+  background-color: yellow;
+}
+
+.create_website {
+  background-color: purple;
+}
+
+.navbar2 {
+  background-color: aqua;
+}
+
+.mat_table {
+  background-color: coral;
+}
+
+@media only screen and (max-width: 768px) {
+.name, .url, .status, .actions {
+  width: 100%;
+  float: left;
+  }
+}

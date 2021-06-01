@@ -11,25 +11,48 @@
 
 <h3> Create Site </h3>
 
-<form (ngSubmit)="onSubmit()">
-  <mat-form-field class="example-form-field" appearance="fill">
-    <mat-label style="color: black;">Name </mat-label>
-    <input matInput [(ngModel)]="website.name" name="name">
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-form-field field" appearance="fill" hideRequiredMarker>
+    <mat-label style="color: black;">Name</mat-label>
+    <input matInput formControlName="name" [(ngModel)]="website.name" required>
+    <mat-error *ngIf="createForm.get('name').hasError('name') && !createForm.get('name').hasError('required')">
+      Please enter a valid name
+    </mat-error>
+    <mat-error
+      *ngIf="createForm.get('name').hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <br>
-  <mat-form-field class="example-form-field" appearance="fill">
+  <mat-form-field class="example-form-field" appearance="fill" hideRequiredMarker>
     <mat-label style="color: black;">URL</mat-label>
-    <input matInput [(ngModel)]="website.url" name="url">
+    <input matInput formControlName="url" [(ngModel)]="website.url" required>
+    <mat-error *ngIf="createForm.get('url').hasError('url') && !createForm.get('url').hasError('required')">
+      Please enter a valid URL
+    </mat-error>
+    <mat-error
+      *ngIf="createForm.get('url').hasError('required')">
+      URL is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
   <br>
   <mat-label style="color: black;">Select a status</mat-label>
   <br>
-  <mat-radio-group class="example-radio-group" [(ngModel)]="website.active" name="radioButtons">
+  <mat-radio-group class="example-radio-group" [(ngModel)]="website.active" [ngModelOptions]="{standalone: true}" name="radioButtons">
     <mat-radio-button [value]=true name="option1"> true </mat-radio-button>
     <mat-radio-button [value]=false name="option2"> false </mat-radio-button>
   </mat-radio-group>
   <br>
-  <button mat-raised-button class="btn btn-dark" type="submit">Submit</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose the period</mat-label>
+    <mat-select [(ngModel)]="selectedPeriod" (change)="selected()" [ngModelOptions]="{standalone: true}" name="period">
+      <mat-option *ngFor="let period of periods" [value]="period">
+        {{period}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button class="btn btn-dark" [disabled]="!createForm.valid" type="submit">Submit</button>
 </form>
 
 </div>

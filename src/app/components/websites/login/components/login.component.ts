@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   user: User = new User();
 
   loginForm: FormGroup = this.formBuilder.group({
-    username: [, { validators: [Validators.required, Validators.minLength(5), Validators.maxLength(30)], updateOn: 'change' }],
-    password: [, { validators: [Validators.required, Validators.minLength(5), Validators.maxLength(30)], updateOn: 'change' }],
+    username: [, { validators: [Validators.required, Validators.minLength(5), Validators.maxLength(50)], updateOn: 'change' }],
+    password: [, { validators: [Validators.required, Validators.minLength(5), Validators.maxLength(50)], updateOn: 'change' }],
   });
 
 

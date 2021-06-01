@@ -35,6 +35,7 @@ import { RegisterComponent } from './components/websites/register/components/reg
 import { ActionComponent } from './components/websites/action/components/action.component';
 import {AuthGuard} from './components/websites/guard/auth.guard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatRadioModule,
     MatOptionModule,
     MatSnackBarModule,
+    MatSelectModule
   ],
   entryComponents: [CreateWebsiteComponent, DialogCreateWebsite, DialogUpdateWebsite, DialogDeleteWebsite],
   providers: [AuthGuard, {
