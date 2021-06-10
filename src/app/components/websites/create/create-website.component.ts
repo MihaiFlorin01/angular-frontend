@@ -30,6 +30,7 @@ export class CreateWebsiteComponent implements OnInit {
 
   save(): void {
     this.website.period = this.selectedPeriod;
+    this.website.email = localStorage.getItem('email');
     this.websiteService.create(this.website).subscribe((data) => {
         console.log(data);
         this.dialog.open(DialogCreateWebsite);

@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(): void {
-    this.registerService.userRegistration(this.user).subscribe((data) => {
+    this.registerService.userRegistration(this.user).subscribe(() => {
       this.snackBar.open('Successful registration!', 'Close', {
         duration: 3000,
       });

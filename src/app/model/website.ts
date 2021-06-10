@@ -4,4 +4,5 @@ export class Website {
   url: string;
   active: boolean;
   period: string;
+  email: string;
 }

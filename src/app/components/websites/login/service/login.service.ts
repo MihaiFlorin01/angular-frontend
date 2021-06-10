@@ -9,12 +9,16 @@ import {Observable} from 'rxjs/index';
 })
 export class LoginService {
 
-  private baseURL = 'http://localhost:8081/api/v1/login';
+  private baseURL = 'http://localhost:8081/api/v1/';
 
   constructor(private httpClient: HttpClient) { }
 
-  userRegistration(user: User): Observable<object> {
-    return this.httpClient.post(`${this.baseURL}`, user);
+  userLogin(user: User): Observable<object> {
+    return this.httpClient.post(this.baseURL + 'login', user);
+  }
+
+  findEmailByUsername(username: string): Observable<any> {
+    return this.httpClient.get(this.baseURL + 'email/' + username);
   }
 
 }

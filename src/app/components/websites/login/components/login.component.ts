@@ -31,9 +31,13 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
     localStorage.setItem('user', this.user.username);
-    this.loginService.userRegistration(this.user).subscribe((data) => {
+    this.loginService.userLogin(this.user).subscribe((data) => {
         if (data.toString() === 'true') {
           localStorage.setItem('auth', 'true');
+          this.loginService.findEmailByUsername(this.user.username).subscribe(data => {
+            console.log('Email is here: ' + JSON.stringify(data));
+            localStorage.setItem('email', data.email);
+          }, error => console.log(error));
           this.snackBar.open('Successful login!', 'Close', {
             duration: 3000,
           });

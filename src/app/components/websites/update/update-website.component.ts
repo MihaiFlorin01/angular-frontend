@@ -35,6 +35,7 @@ export class UpdateWebsiteComponent implements OnInit {
 
   onSubmit(): any {
     this.websiteModel.period = this.selectedPeriod;
+    this.websiteModel.email = localStorage.getItem('email');
     this.websiteService.update(this.id, this.websiteModel).subscribe(data => {
         this.dialog.open(DialogUpdateWebsite);
         this.goToWebsitesList();
