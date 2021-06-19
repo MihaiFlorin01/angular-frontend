@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Website} from "../../../../model/website";
 
 @Component({
   selector: 'app-login',

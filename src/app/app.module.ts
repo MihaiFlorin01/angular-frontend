@@ -36,7 +36,7 @@ import { ActionComponent } from './components/websites/action/components/action.
 import {AuthGuard} from './components/websites/guard/auth.guard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
-import {MatTooltip, MatTooltipModule} from "@angular/material/tooltip";
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
